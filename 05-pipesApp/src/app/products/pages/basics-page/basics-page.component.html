@@ -1,0 +1,56 @@
+<p-panel header="Pipes Básicos" class="p-1">
+  <p>Pipes incluídos en Angular - Usualmente en Common Module</p>
+</p-panel>
+
+<div class="grid">
+  <div class="col-12 md:col-4">
+    <p-card header="uppercase">{{ nameUppercase | uppercase }}</p-card>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-card header="lowercase">{{ namelowercase | lowercase }}</p-card>
+  </div>
+  <div class="col-12 md:col-4">
+    <p-card header="titlecase">{{ nameTitlecase | titlecase }}</p-card>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-card header="Fechas">
+      <ol>
+        <li class="text-xl">Fecha</li>
+        <li class="text-xl">Fecha | Date</li>
+        <li class="text-xl">Fecha | Date:short</li>
+        <li class="text-xl">Fecha | Date:long</li>
+        <li class="text-xl">Fecha | Date:MMMM</li>
+        <li class="text-xl">Fecha | Date:MMMM dd, yyyy</li>
+      </ol>
+      <hr />
+      <ol>
+        <li class="text-xl">Fecha | date:'long':'GMT-6'</li>
+        <li class="text-xl">Fecha | date:'long':'GMT-4'</li>
+        <li class="text-xl">Fecha | date:'long':'':'es-AR'</li>
+        <li class="text-xl">Fecha | date:'long':'':'fr-CA'</li>
+        <li class="text-xl">Fecha | date:'long':'':'en-US'</li>
+      </ol>
+    </p-card>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-card header="Resultado">
+      <ol>
+        <li class="text-xl">{{ customDate }}</li>
+        <li class="text-xl">{{ customDate | date }}</li>
+        <li class="text-xl">{{ customDate | date : "short" }}</li>
+        <li class="text-xl">{{ customDate | date : "long" }}</li>
+        <li class="text-xl">{{ customDate | date : "MMMM" }}</li>
+        <li class="text-xl">{{ customDate | date : "MMMM dd, yyyy" }}</li>
+      </ol>
+      <hr />
+      <ol>
+        <li class="text-xl">{{ customDate | date : "long" : "GMT-6" }}</li>
+        <li class="text-xl">{{ customDate | date : "long" : "GMT-4" }}</li>
+        <li class="text-xl">{{ customDate | date : "long" : "" : "es-AR" }}</li>
+        <li class="text-xl">{{ customDate | date : "long" : "" : "fr-CA" }}</li>
+        <li class="text-xl">{{ customDate | date : "long" : "" : "en-US" }}</li>
+      </ol>
+    </p-card>
+  </div>
+</div>
