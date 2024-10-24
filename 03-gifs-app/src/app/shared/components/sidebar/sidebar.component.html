@@ -1,0 +1,24 @@
+<div class="bg-dark border-right p-3" id="sidebar">
+  <h3 class="text-light">GifsApp</h3>
+  <hr class="text-white" />
+
+  <div
+    *ngFor="let tagHistory of tagsHistory"
+    class="list-group list-group-horizontal list-reset mb-2"
+  >
+    <button
+      type="button"
+      class="list-group-item list-group-item-action list-group-item-warning me-2"
+      (click)="searchBtnTag(tagHistory)"
+    >
+      {{ tagHistory | titlecase }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="deleteTag(tagHistory)"
+    >
+      X
+    </button>
+  </div>
+</div>
