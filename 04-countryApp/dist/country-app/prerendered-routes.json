@@ -1,0 +1,11 @@
+{
+  "routes": [
+    "/",
+    "/about",
+    "/contact",
+    "/countries",
+    "/countries/by-capital",
+    "/countries/by-country",
+    "/countries/by-region"
+  ]
+}

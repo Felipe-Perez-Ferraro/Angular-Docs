@@ -1,0 +1,29 @@
+<h2>Por País</h2>
+<hr />
+
+<div class="row">
+  <div class="col text-center">
+    <button
+      type="button"
+      *ngFor="let region of regions"
+      (click)="searchByRegion(region)"
+      [ngClass]="{
+        'btn-primary text-white': selectedRegion === region
+      }"
+      class="mx-2 btn btn-outline-primary"
+    >
+      {{ region }}
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr />
+    <shared-loading-spinner
+      *ngIf="isLoading"
+      buscandoTxt="región..."
+    ></shared-loading-spinner>
+    <countries-country-table [countries]="countries"></countries-country-table>
+  </div>
+</div>
