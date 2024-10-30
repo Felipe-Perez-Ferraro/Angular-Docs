@@ -1,0 +1,11 @@
+@use '@angular/material' as mat;
+$theme: mat.define-theme();
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

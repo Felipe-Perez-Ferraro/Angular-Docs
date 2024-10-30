@@ -1,1 +1,51 @@
-<p>hero-page works!</p>
+<ng-template #divLoading>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
+
+<div *ngIf="hero; else divLoading" class="grid justify-content-center p-2">
+  <mat-card class="col-12 lg:col-5 xl:col-3 lg:mb-0 lg:mr-3 mb-2">
+    <mat-card-header>
+      <mat-card-title>{{ hero.superhero }}</mat-card-title>
+      <mat-card-subtitle>{{ hero.alter_ego }}</mat-card-subtitle>
+    </mat-card-header>
+    <img [src]="hero | heroImage" [alt]="hero.superhero" mat-card-image />
+  </mat-card>
+
+  <mat-card class="col-12 lg:col-5 xl:col-3 lg:mb-0">
+    <mat-card-header>
+      <mat-card-title>Información</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="h-full">
+      <mat-list>
+        <mat-list-item>
+          <mat-chip-listbox>
+            <mat-chip
+              *ngFor="let name of hero.characters.split(',') | slice : 0 : 3"
+            >
+              {{ name }}
+            </mat-chip>
+          </mat-chip-listbox>
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Primera Aparición</strong>
+          {{ hero.first_appearance }}</mat-list-item
+        >
+        <mat-list-item>
+          <strong>Publicado en</strong>
+          {{ hero.publisher }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Alter Ego</strong>
+          {{ hero.alter_ego }}
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <button mat-button color="warn" [routerLink]="['/heroes/list']">
+      Volver al inicio
+    </button>
+  </mat-card>
+</div>

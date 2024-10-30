@@ -1,1 +1,31 @@
-<p>search-page works!</p>
+<div class="flex flex-column p-2">
+  <h3>Buscador</h3>
+  <mat-form-field>
+    <mat-label>Buscador de Héroes</mat-label>
+    <input
+      type="text"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option.superhero }}
+      </mat-option>
+
+      <ng-container
+        *ngIf="(filteredOptions | async)?.length === 0 && myControl.value"
+      >
+        <mat-option value="" disabled>
+          No se encontró nada con el término "{{ myControl.value }}"
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+  <div>
+    <p *ngIf="selectedHero">{{ selectedHero | json }}</p>
+  </div>
+</div>
