@@ -7,7 +7,9 @@
     <div class="row">
       <div class="col">
         <p>Este componente no necesita ser importado en modulos</p>
-        <p *ngIf="true">pq es su propio modulo {{ 1 + 1 }} </p>
+        <p>pq es su propio modulo {{ 1 + 1 }} </p>
+
+        <counter-alone [counter]="5" />
       </div>
     </div>
   </div>
