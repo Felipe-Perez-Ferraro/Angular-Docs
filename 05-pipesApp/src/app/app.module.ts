@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Config swl locale de la app
 import localeEsAR from '@angular/common/locales/es-AR';
 import localeFrCA from '@angular/common/locales/fr-CA';
 import { registerLocaleData } from '@angular/common';
+import { MenuComponent } from './shared/components/menu/menu.component';
 
 registerLocaleData(localeEsAR);
 registerLocaleData(localeFrCA);
@@ -20,8 +20,8 @@ registerLocaleData(localeFrCA);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     BrowserAnimationsModule,
+    MenuComponent,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es-AR' }],
   bootstrap: [AppComponent],

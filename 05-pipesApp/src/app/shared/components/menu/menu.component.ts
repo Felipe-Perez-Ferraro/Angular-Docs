@@ -1,10 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MenuItem, PrimeIcons } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
+import { PrimeNgModule } from '../../../prime-ng/prime-ng.module';
+import { ProductsRoutingModule } from '../../../products/products-routing.module';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, ProductsRoutingModule, PrimeNgModule],
   selector: 'shared-menu',
   templateUrl: './menu.component.html',
-  styles: ``,
 })
 export class MenuComponent {
   items!: MenuItem[];
@@ -39,7 +43,7 @@ export class MenuComponent {
           {
             label: 'Custom Pipes',
             icon: 'pi pi-cog',
-            routerLink: '/custom'
+            routerLink: '/custom',
           },
         ],
       },
