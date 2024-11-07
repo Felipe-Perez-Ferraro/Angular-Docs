@@ -1,0 +1,10 @@
+#map {
+  height: 100vh;
+}
+
+button {
+  position: fixed;
+  top: 90px;
+  left: 10px;
+  z-index: 999;
+}
