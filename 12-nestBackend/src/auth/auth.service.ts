@@ -62,6 +62,9 @@ export class AuthService {
     if (!bcryptjs.compareSync(password, user.password)) {
       throw new UnauthorizedException('La contaseña es incorrecta');
     }
+    if (!user.isActive) {
+      throw new UnauthorizedException('El usuario está inactivo');
+    }
 
     const { password: _, ...rest } = user.toJSON();
 
