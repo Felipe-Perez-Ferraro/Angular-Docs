@@ -1,2 +1,10 @@
-<p>dashboard works!</p>
-<router-outlet />
+<div
+  class="flex bg-slate-100 text-black w-full h-screen antialiased selection:bg-blue-600 selection:text-white"
+>
+  <div class="flex relative w-full">
+    <shared-sidemenu />
+    <div class="text-black px-2 mt-2 w-full">
+      <router-outlet />
+    </div>
+  </div>
+</div>

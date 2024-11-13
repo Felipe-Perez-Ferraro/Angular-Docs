@@ -1,1 +1,69 @@
-<p>control-flow works!</p>
+<shared-title title="Control Flow" />
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">if: {{ showContent() }}</h2>
+    <button
+      type="button"
+      (click)="toggleContent()"
+      class="p-2 bg-blue-500 text-white rounded"
+    >
+      Clickear
+    </button>
+
+    @if (showContent()) {
+    <p class="mt-2">Hola Mundo</p>
+    } @else {
+    <p class="mt-2">************</p>
+    }
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">Nota: {{ grade() }}</h2>
+    @switch (grade()) { @case ('A') {
+    <p>Aprobado!</p>
+    } @case ('B') {
+    <p>Regular!</p>
+    } @case ('F') {
+    <p>Burro!</p>
+    } }
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">Frameworks</h2>
+    <ul>
+      @for (framework of frameworks(); track framework; let i = $index, first =
+      $first, last = $last, even = $even, odd = $odd, count = $count ) {
+      <li
+        [class]="{
+          'bg-red-100': even && !first && !last, 
+          'bg-purple-200': odd && !first && !last, 
+          'bg-blue-100': first || last, 
+        }"
+      >
+        {{ i + 1 }}/{{ count }} - {{ framework }}
+      </li>
+      }
+    </ul>
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">Frameworks Vacío</h2>
+    <ul>
+      @for (framework of frameworks2(); track framework; let i = $index, first =
+      $first, last = $last, even = $even, odd = $odd, count = $count ) {
+      <li
+        [class]="{
+          'bg-red-100': even && !first && !last, 
+          'bg-purple-200': odd && !first && !last, 
+          'bg-blue-100': first || last, 
+        }"
+      >
+        {{ i + 1 }}/{{ count }} - {{ framework }}
+      </li>
+      } @empty {
+      <p>No se encontró ningun framework</p>
+      }
+    </ul>
+  </div>
+</section>

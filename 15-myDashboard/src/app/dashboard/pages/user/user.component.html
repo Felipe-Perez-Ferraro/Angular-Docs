@@ -1,1 +1,13 @@
-<p>user works!</p>
+<shared-title [title]="titleLabel()" />
+
+@if (user()) {
+<section>
+  <img [alt]="user()!.first_name" [srcset]="user()!.avatar" />
+  <div>
+    <h3>{{ user()!.first_name }} {{ user()!.last_name }}</h3>
+    <p>{{ user()!.email }}</p>
+  </div>
+</section>
+} @else {
+<p class="animate-pulse">Cargando usuario...</p>
+}
