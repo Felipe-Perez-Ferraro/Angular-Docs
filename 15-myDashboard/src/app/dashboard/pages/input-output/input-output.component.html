@@ -1,0 +1,11 @@
+<shared-title title="Listado de Productos" />
+<hr class="my-2" />
+
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+  @for (prod of products(); track prod.id) {
+  <ui-product-card
+    [product]="prod"
+    (onIncrementQuantity)="updateProduct(prod, $event)"
+  />
+  }
+</div>
